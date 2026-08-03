@@ -1,0 +1,79 @@
+==============================================================================
+✨ CUTE ANIME GLASSMORPHIC LOGIN & SIGNUP TEMPLATE - SETUP & GUIDE ✨
+💖 Created By Deepankar Saini
+==============================================================================
+
+Welcome to the Cute Anime Glassmorphic Login & Signup portal template!
+This project is a modern, light-pink & white, fully responsive frontend UI template designed for web applications, SaaS portals, and anime/gaming websites.
+
+------------------------------------------------------------------------------
+📁 1. FILE STRUCTURE & ORGANISATION
+------------------------------------------------------------------------------
+Cute Anime Login-Signup/
+├── index.html        # Main HTML structure, forms, modals (Recovery, Privacy, Terms)
+├── styles.css        # Light pink & white glassmorphism theme, animations, keyframes
+├── app.js            # Interactive logic, Sakura petal particle canvas, simulated API calls
+├── setup.txt         # Configuration & integration guide (This file)
+└── assets/
+    ├── chibi-mascot.png  # Cute chibi anime character artwork
+    └── anime-bg.jpg      # High-definition anime sky & sakura background image
+
+------------------------------------------------------------------------------
+🎨 2. CUSTOMISING THE THEME (COLORS & STYLING)
+------------------------------------------------------------------------------
+All main design tokens are defined in `styles.css` under the `:root` selector:
+
+- Primary Pink Accent:     `--primary-pink: #ff477e;`
+- Soft Pink Background:   `--bg-pink-soft: #fff0f5;`
+- White Glass Card:        `--glass-bg: rgba(255, 255, 255, 0.82);`
+- Glass Border:            `--glass-border: rgba(255, 255, 255, 0.9);`
+
+To change to another color theme (e.g. Lavender, Mint, Sky Blue), simply edit the CSS variable hex codes in `:root` inside `styles.css`.
+
+------------------------------------------------------------------------------
+⚡ 3. CONNECTING REAL BACKEND APIs (LOGIN, SIGNUP, RECOVERY)
+------------------------------------------------------------------------------
+Currently, `app.js` simulates network requests with a 1.2-second delay (`setTimeout`).
+To connect your real backend API (e.g., Express.js, Firebase, Supabase, Django, FastAPI):
+
+1. Open `app.js`.
+2. Locate the form submit listeners for `#login-form`, `#signup-form`, and `#recovery-form`.
+3. Replace the `simulateNetworkCall(...)` function with a real `fetch()` or `axios` call:
+
+   ```javascript
+   // Example Real Fetch Call for Login:
+   try {
+     const response = await fetch('https://your-api.com/api/login', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({ email, password })
+     });
+     const data = await response.json();
+     if (response.ok) {
+       // Save token or redirect: localStorage.setItem('token', data.token);
+       showSuccessModal('Welcome Back!', 'Authentication successful!', email);
+     } else {
+       setError('login-password-error', data.message || 'Invalid credentials');
+     }
+   } catch (err) {
+     setError('login-email-error', 'Server error. Please try again.');
+   }
+   ```
+
+------------------------------------------------------------------------------
+🔒 4. PRIVACY, TERMS & USER DATA MANAGEMENT
+------------------------------------------------------------------------------
+- This project is a FRONTEND TEMPLATE.
+- No user data, passwords, or personal information are stored or transmitted anywhere by default.
+- Users manage their own data locally in their browser session or through your custom backend integration.
+- The built-in Privacy Policy and Terms of Service modals can be customized in `index.html` under `#privacy-modal` and `#terms-modal`.
+
+------------------------------------------------------------------------------
+🌸 5. ADJUSTING ANIMATIONS & SAKURA PARTICLES
+------------------------------------------------------------------------------
+- Sakura Petal Particle Engine is located in `app.js` inside `SakuraPetal` class.
+- You can adjust petal count, gravity, wind speed, or disable mouse trails by modifying variables in `app.js`.
+- Floating Mascot Bobbing speed can be adjusted in `styles.css` under `@keyframes floatBob`.
+
+Enjoy building your magical web application! ✨
+Follow us on Instagram @iamdeepankarsaini
