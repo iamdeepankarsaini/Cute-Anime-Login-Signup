@@ -219,7 +219,7 @@ The text displayed inside the legal modals is located directly in `index.html`:
 
 **Created by Deepankar Saini**
 
-- **Instagram:** [@iamdeepankarsaini](https://instagram.com/iamdeepankarsaini)
+- **Instagram:** [@itdeepankar](https://instagram.com/itdeepankar)
 - **Project Goal:** Providing clean, modern, and high-quality frontend website templates for developers & creators around the world.
 
 ---
